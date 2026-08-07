@@ -176,9 +176,7 @@ export default function HomePage() {
               <Reveal key={entry.id} delay={index * 0.06}>
                 <Link href={`/journal/${entry.id}`} className="feature-item">
                   <div className="feature-title">{entry.event}</div>
-                  <div className="feature-index">
-                    {entry.type === "daily" ? "日志" : "周志"}
-                  </div>
+                  <div className="feature-file">{entry.title}</div>
                   <div className="feature-desc">{entry.eventSummary}</div>
                 </Link>
               </Reveal>

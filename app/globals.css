@@ -509,6 +509,13 @@ button {
   line-height: 1.4;
 }
 
+.feature-file {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink-soft);
+  padding-top: 8px;
+}
+
 .feature-desc {
   color: var(--ink-soft);
   font-size: 15px;
