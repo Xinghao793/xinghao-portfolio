@@ -1,0 +1,49 @@
+[
+  {
+    "group": "金融与市场",
+    "desc": "来自中信证券实习的一线实践",
+    "items": [
+      { "name": "宏观与行业研究", "level": "掌握" },
+      { "name": "每日市场复盘", "level": "熟练" },
+      { "name": "资产配置思维", "level": "掌握" },
+      { "name": "公募 / 私募基金认知", "level": "掌握" },
+      { "name": "券商业务体系", "level": "了解" },
+      { "name": "期货与私行视野", "level": "了解" }
+    ]
+  },
+  {
+    "group": "量化与数据",
+    "desc": "交易系统、基础编程与信息整理",
+    "items": [
+      { "name": "CATS 交易系统", "level": "掌握" },
+      { "name": "TWAP 拆单策略", "level": "掌握" },
+      { "name": "Python 基础", "level": "了解" },
+      { "name": "Excel 数据整理", "level": "熟练" },
+      { "name": "PPT 路演表达", "level": "熟练" },
+      { "name": "研报信息结构化", "level": "熟练" }
+    ]
+  },
+  {
+    "group": "AI 工具",
+    "desc": "我的差异化能力",
+    "items": [
+      { "name": "AI Agent 协作", "level": "熟练" },
+      { "name": "大模型调用", "level": "熟练" },
+      { "name": "Skill / 插件应用", "level": "熟练" },
+      { "name": "提示词与工作流设计", "level": "熟练" },
+      { "name": "AI 结果交叉验证", "level": "熟练" }
+    ]
+  },
+  {
+    "group": "软技能",
+    "desc": "实习与校园共同锻炼",
+    "items": [
+      { "name": "路演与公开表达", "level": "熟练" },
+      { "name": "辩论主持与控场", "level": "掌握" },
+      { "name": "复盘与总结", "level": "熟练" },
+      { "name": "快速学习", "level": "熟练" },
+      { "name": "团队协作", "level": "熟练" },
+      { "name": "自我规划", "level": "熟练" }
+    ]
+  }
+]
