@@ -488,8 +488,8 @@ button {
 
 .feature-item {
   display: grid;
-  grid-template-columns: 1.5fr 90px 1.3fr;
-  gap: 32px;
+  grid-template-columns: 1.4fr minmax(180px, auto) 1.2fr;
+  gap: 28px;
   align-items: start;
   padding: 36px 0;
   border-bottom: 1px solid var(--line);
@@ -510,10 +510,13 @@ button {
 }
 
 .feature-file {
-  font-family: var(--font-mono);
-  font-size: 13px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
   color: var(--ink-soft);
   padding-top: 8px;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .feature-desc {
