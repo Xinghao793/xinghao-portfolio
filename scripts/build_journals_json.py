@@ -11,6 +11,89 @@ OUT = os.environ.get(
     r"C:\Users\LENOVO\Documents\Codex\xinghao-portfolio\content\journals.json",
 )
 
+EVENT_MAP = {
+    "2026-07-13-daily": {
+        "event": "第一天入职：券商晨会与职业认知",
+        "summary": "首次参加券商晨会、部门复盘会议，完成入职手续，听总经理分享从业经历。",
+    },
+    "2026-07-14-daily": {
+        "event": "券商业务与公募基金学习",
+        "summary": "系统学习券商业务板块、资产配置与公募基金知识，梳理金融术语框架。",
+    },
+    "2026-07-15-daily": {
+        "event": "第一次股票开户与模拟交易",
+        "summary": "完成股票开户，开始 100 万虚拟资产模拟交易，理解投资决策流程。",
+    },
+    "2026-07-16-daily": {
+        "event": "参访中信期货与基金路演准备",
+        "summary": "参访中信期货了解期货业务，准备中欧医疗创新 A 基金路演。",
+    },
+    "2026-07-17-daily": {
+        "event": "第一次基金产品路演",
+        "summary": "完成中欧医疗创新 A 基金路演，学习基金定投与资产配置方法。",
+    },
+    "2026-07-17-weekly": {
+        "event": "第一周周志：从旁观者到参与者",
+        "summary": "完成晨会、模拟交易与基金路演，建立券商业务认知框架。",
+    },
+    "2026-07-20-daily": {
+        "event": "私募基金与资产配置学习",
+        "summary": "学习私募基金产品与资产配置组合规划，为辩论赛和路演做准备。",
+    },
+    "2026-07-21-daily": {
+        "event": "资产配置路演准备",
+        "summary": "围绕资产配置路演搜集资料，梳理投资组合与风险控制思路。",
+    },
+    "2026-07-22-daily": {
+        "event": "辩论赛主持与职业分享",
+        "summary": "主持 AI 是否取代人类等金融辩论赛，听总经理分享职业发展路径。",
+    },
+    "2026-07-23-daily": {
+        "event": "路演预演与私人银行参访",
+        "summary": "完成资产配置路演预演，学习商务礼仪并参访中信银行私人银行部。",
+    },
+    "2026-07-24-daily": {
+        "event": "资产配置路演与结业",
+        "summary": "完成资产配置路演展示，参加飞鹰计划结业仪式。",
+    },
+    "2026-07-24-weekly": {
+        "event": "第二周周志：建立资产配置思维",
+        "summary": "完成私募基金学习、辩论主持与资产配置路演，建立整体配置思维。",
+    },
+    "2026-07-27-daily": {
+        "event": "新一周实习与行业分析准备",
+        "summary": "参加市场回顾晨会，明确行业分析报告要求，开启第二阶段实习。",
+    },
+    "2026-07-28-daily": {
+        "event": "CATS 交易系统入门",
+        "summary": "学习 CATS 交易系统界面与业务流程，同步整理行业分析资料。",
+    },
+    "2026-07-29-daily": {
+        "event": "TWAP 策略设计与行业路演",
+        "summary": "与 AI Agent 协作设计 TWAP 策略并模拟运行，完成行业分析路演。",
+    },
+    "2026-07-30-daily": {
+        "event": "CATS 研究汇报与策略梳理",
+        "summary": "向导师汇报 CATS 系统研究，重新梳理交易策略并给同事讲解。",
+    },
+    "2026-07-31-daily": {
+        "event": "一周复盘与投资心理学习",
+        "summary": "整理行业报告，复盘一周板块轮动，通过德州扑克学习投资心理学。",
+    },
+    "2026-07-31-weekly": {
+        "event": "第三周周志：动手比光听有用",
+        "summary": "完成 CATS 策略、行业路演与每日复盘，从复述信息转向独立判断。",
+    },
+    "2026-08-05-daily": {
+        "event": "四份研报横向对比总结",
+        "summary": "阅读消费互联网、AI 算力、稀土、SaaS 研报，搭建横向对比框架。",
+    },
+    "2026-08-06-daily": {
+        "event": "AI 辅助研报分析与市场复盘",
+        "summary": "用 AI 工具梳理研报逻辑并交叉验证，完成煤炭与半导体板块复盘。",
+    },
+}
+
 
 def parse_frontmatter(text):
     fm = {}
@@ -70,13 +153,17 @@ for fname in sorted(os.listdir(SRC)):
     paragraphs = [p.strip() for p in body.split("\n\n") if p.strip()]
     date = fm.get("date", fname.replace(".md", ""))
     typ = fm.get("type", "daily")
+    summary = pick_summary(paragraphs)
+    event = EVENT_MAP.get(f"{date}-{typ}", {})
     entry = {
         "id": f"{date}-{typ}",
         "date": date,
         "type": typ,
         "title": fm.get("title", date),
+        "event": event.get("event", fm.get("title", date)),
+        "eventSummary": event.get("summary", summary),
         "tags": detect_tags(body, typ),
-        "summary": pick_summary(paragraphs),
+        "summary": summary,
         "paragraphs": paragraphs
     }
     entries.append(entry)

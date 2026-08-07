@@ -488,7 +488,7 @@ button {
 
 .feature-item {
   display: grid;
-  grid-template-columns: 120px 1fr 1.2fr;
+  grid-template-columns: 1.5fr 90px 1.3fr;
   gap: 32px;
   align-items: start;
   padding: 36px 0;
@@ -1445,11 +1445,11 @@ button {
   }
 
   .feature-item {
-    grid-template-columns: 90px 1fr;
+    grid-template-columns: 1fr;
   }
 
   .feature-desc {
-    grid-column: 2;
+    grid-column: 1;
   }
 }
 

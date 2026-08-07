@@ -14,6 +14,8 @@ export interface JournalEntry {
   date: string;
   type: "daily" | "weekly";
   title: string;
+  event: string;
+  eventSummary: string;
   tags: string[];
   summary: string;
   paragraphs: string[];

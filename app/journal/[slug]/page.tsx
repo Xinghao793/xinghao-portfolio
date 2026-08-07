@@ -34,7 +34,8 @@ export default async function JournalDetailPage({
             <div className="article-date">
               {formatDate(entry.date)} · {entry.type === "daily" ? "每日日志" : "周度总结"}
             </div>
-            <h1 className="article-title">{entry.title}</h1>
+            <h1 className="article-title">{entry.event}</h1>
+            <p className="article-sub">{entry.title}</p>
             <div className="journal-tags" style={{ marginTop: 18 }}>
               {entry.tags.map((tag) => (
                 <span key={tag} className="journal-tag">

@@ -6,8 +6,9 @@ import SectionHeading from "@/components/SectionHeading";
 import { experience, journals, profile, skills } from "@/lib/content";
 
 export default function HomePage() {
-  const dailyCount = journals.filter((j) => j.type === "daily").length;
-  const weeklyCount = journals.filter((j) => j.type === "weekly").length;
+  // 实习周期 2026.07.13-08.14：25 个工作日日志 + 5 篇周志
+  const expectedDaily = 25;
+  const expectedWeekly = 5;
   const latest = journals.slice(-3).reverse();
   const skillTags = skills.flatMap((g) => g.items).slice(0, 6);
 
@@ -67,17 +68,17 @@ export default function HomePage() {
             <div className="stat-grid">
               <div className="stat-item">
                 <div className="stat-number">
-                  <CountUp value={dailyCount} suffix="天" />
+                  <CountUp value={expectedDaily} suffix="天" />
                 </div>
-                <div className="stat-label">每日实习日志</div>
-                <div className="stat-note">含晨会与市场复盘</div>
+                <div className="stat-label">工作日日志</div>
+                <div className="stat-note">周一至周五 · 至 8.14</div>
               </div>
               <div className="stat-item">
                 <div className="stat-number">
-                  <CountUp value={weeklyCount} suffix="篇" />
+                  <CountUp value={expectedWeekly} suffix="篇" />
                 </div>
                 <div className="stat-label">周度总结</div>
-                <div className="stat-note">持续复盘迭代</div>
+                <div className="stat-note">每周一篇周志</div>
               </div>
               <div className="stat-item">
                 <div className="stat-number">
@@ -166,17 +167,19 @@ export default function HomePage() {
           <Reveal>
             <SectionHeading
               kicker="03 / 实习日志"
-              title="20 篇记录，一条成长曲线"
-              note="每天的市场复盘、工作日志和周度总结都保留在这里，是面试官了解我工作方式最直接的入口。"
+              title="30 篇记录，一条成长曲线"
+              note="25 个工作日日志加 5 篇周志，每天的市场复盘和工作记录都保留在这里，是面试官了解我工作方式最直接的入口。"
             />
           </Reveal>
           <div className="feature-list">
             {latest.map((entry, index) => (
               <Reveal key={entry.id} delay={index * 0.06}>
                 <Link href={`/journal/${entry.id}`} className="feature-item">
-                  <div className="feature-index">{entry.date.replaceAll("-", ".")}</div>
-                  <div className="feature-title">{entry.title}</div>
-                  <div className="feature-desc">{entry.summary}</div>
+                  <div className="feature-title">{entry.event}</div>
+                  <div className="feature-index">
+                    {entry.type === "daily" ? "日志" : "周志"}
+                  </div>
+                  <div className="feature-desc">{entry.eventSummary}</div>
                 </Link>
               </Reveal>
             ))}

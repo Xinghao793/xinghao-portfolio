@@ -34,7 +34,7 @@ export default function JournalPage() {
             <span className="kicker">JOURNAL / 实习日志</span>
             <h1 className="page-title">每一天都算数，每一篇都保留。</h1>
             <p className="page-intro">
-              这里存放我在中信证券实习期间的全部日志：每日工作记录、大盘复盘与周度总结，共 20 篇。可以按类型、标签筛选，也可以直接搜索。
+              实习周期为 2026.07.13 至 08.14，按每周一至周五写日志、每周写一篇周志计算，共 30 篇记录。当前已归档 20 篇，其余日志会持续补充。可以按类型、标签筛选，也可以直接搜索。
             </p>
           </Reveal>
         </div>
@@ -108,7 +108,7 @@ export default function JournalPage() {
                   <details className="journal-item">
                     <summary>
                       <span className="journal-date">{formatDate(entry.date)}</span>
-                      <span className="journal-title">{entry.title}</span>
+                      <span className="journal-title">{entry.event}</span>
                       <span className="journal-meta">
                         <span className="journal-type">
                           {entry.type === "daily" ? "日志" : "周志"}
