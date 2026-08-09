@@ -54,8 +54,18 @@ python scripts/build_journals_json.py
 
 ## 部署
 
-推荐 GitHub + Vercel：
+当前使用 GitHub Pages 静态部署，仓库已配置 GitHub Actions，推送到 `main` 分支后会自动构建并发布：
 
-1. 在 GitHub 新建仓库 `xinghao-portfolio` 并推送。
-2. 在 Vercel 导入该仓库，框架选择 Next.js，使用默认配置。
-3. 部署完成后，把线上链接放进简历。
+```bash
+git push -u origin main
+```
+
+首次部署需要在 GitHub 仓库的 `Settings → Pages → Source` 中选择 `GitHub Actions`，之后每次推送都会自动更新。
+
+线上地址格式：
+
+```text
+https://Xinghao793.github.io/xinghao-portfolio/
+```
+
+注意：静态托管不支持服务器接口，二期接 DeepSeek 时会把 `app/api/chat` 路由加回来，并切换到支持 Serverless 的平台。
