@@ -1,13 +1,16 @@
 import { formatDate, journals } from "@/lib/content";
 
-function isoDate(year: number, month: number, day: number): string {
-  return `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+function isoDate(offsetDays: number): string {
+  const date = new Date(2026, 6, 13 + offsetDays);
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(
+    date.getDate()
+  ).padStart(2, "0")}`;
 }
 
 export default function Heatmap() {
   const weeks = Array.from({ length: 5 }, (_, week) =>
     Array.from({ length: 5 }, (_, weekday) => {
-      const date = isoDate(2026, 6, 13 + week * 7 + weekday);
+      const date = isoDate(week * 7 + weekday);
       const entry = journals.find((j) => j.date === date && j.type === "daily");
       return { date, entry };
     })
