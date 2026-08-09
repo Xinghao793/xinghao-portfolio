@@ -1,6 +1,7 @@
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import { profile } from "@/lib/content";
+import { assetPath } from "@/lib/paths";
 
 export default function AboutPage() {
   return (
@@ -19,13 +20,13 @@ export default function AboutPage() {
         <div className="container about-grid">
           <Reveal className="about-media">
             <div className="about-photo">
-              <img src="/images/photos/portrait-1.jpg" alt="王星皓近景照片" />
+              <img src={assetPath("/images/photos/portrait-1.jpg")} alt="王星皓近景照片" />
             </div>
             <div className="about-photo-caption">生活照 · 更多照片随网站迭代补充</div>
             <div className="photo-strip">
-              <img src="/images/photos/portrait-2.jpg" alt="王星皓照片二" />
-              <img src="/images/photos/portrait-3.jpg" alt="王星皓照片三" />
-              <img src="/images/photos/fullbody.jpg" alt="王星皓全身照" />
+              <img src={assetPath("/images/photos/portrait-2.jpg")} alt="王星皓照片二" />
+              <img src={assetPath("/images/photos/portrait-3.jpg")} alt="王星皓照片三" />
+              <img src={assetPath("/images/photos/fullbody.jpg")} alt="王星皓全身照" />
             </div>
           </Reveal>
           <Reveal delay={0.08} className="bio-copy">

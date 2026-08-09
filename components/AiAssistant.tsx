@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Bot, Send, X } from "lucide-react";
+import { assetPath } from "@/lib/paths";
 
 interface Message {
   role: "user" | "assistant";
@@ -74,7 +75,7 @@ export default function AiAssistant() {
           >
             <div className="assistant-head">
               <div className="assistant-avatar">
-                <img src="/images/avatar.png" alt="AI 王星皓头像" />
+                <img src={assetPath("/images/avatar.png")} alt="AI 王星皓头像" />
               </div>
               <div>
                 <div className="assistant-name">AI 王星皓</div>
@@ -137,7 +138,7 @@ export default function AiAssistant() {
         aria-label="打开 AI 助手"
         onClick={() => setOpen((v) => !v)}
       >
-        <img src="/images/avatar.png" alt="AI 王星皓" />
+        <img src={assetPath("/images/avatar.png")} alt="AI 王星皓" />
       </button>
       {open ? null : (
         <span className="assistant-fab-tip" aria-hidden="true">

@@ -4,6 +4,7 @@ import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
 import SectionHeading from "@/components/SectionHeading";
 import { experience, journals, profile, skills } from "@/lib/content";
+import { assetPath } from "@/lib/paths";
 
 export default function HomePage() {
   // 实习周期 2026.07.13-08.14：25 个工作日日志 + 5 篇周志
@@ -41,7 +42,7 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={0.12} className="portrait-wrap">
             <div className="portrait-frame">
-              <img src="/images/avatar.png" alt="王星皓像素半身像" />
+              <img src={assetPath("/images/avatar.png")} alt="王星皓像素半身像" />
               <span className="portrait-index">AI ME · 01</span>
             </div>
             <div className="portrait-caption">像素半身像 · 网站 AI 助手形象</div>
