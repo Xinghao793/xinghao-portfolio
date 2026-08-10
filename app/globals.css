@@ -1,22 +1,22 @@
 :root {
-  --paper: #f2f1ec;
-  --paper-deep: #e6e2d8;
-  --paper-soft: #f9f8f4;
-  --ink: #14120f;
-  --ink-soft: #504b42;
-  --ink-faint: #8a8478;
-  --line: #cfc8ba;
-  --line-soft: #e0dbcf;
-  --accent: #a97e3d;
-  --accent-deep: #6f5224;
-  --accent-soft: #f1e7d3;
-  --slate: #29463e;
-  --slate-soft: #9aa79f;
-  --cobalt: #29463e;
-  --cobalt-soft: #9aa79f;
-  --dark: #14120f;
-  --dark-soft: #1d1a15;
-  --line-dark: #3a352c;
+  --paper: #f4f4f4;
+  --paper-deep: #e9e9e9;
+  --paper-soft: #fafafa;
+  --ink: #1a1a1a;
+  --ink-soft: #565656;
+  --ink-faint: #8f8f8f;
+  --line: #d6d6d6;
+  --line-soft: #e3e3e3;
+  --accent: #202020;
+  --accent-deep: #000000;
+  --accent-soft: #ececec;
+  --slate: #3d3d3d;
+  --slate-soft: #9a9a9a;
+  --cobalt: #3d3d3d;
+  --cobalt-soft: #9a9a9a;
+  --dark: #141414;
+  --dark-soft: #1d1d1d;
+  --line-dark: #3a3a3a;
   --white: #ffffff;
   --font-serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
   --font-sans: "Noto Sans SC", "PingFang SC", "HarmonyOS Sans SC", "Microsoft YaHei", sans-serif;
@@ -2698,5 +2698,348 @@ button {
 
   .identity-plate-name {
     font-size: 44px;
+  }
+}
+
+/* Homepage v4 - centered neutral editorial */
+
+.h4-hero {
+  padding-block: 120px 90px;
+  border-bottom: 1px solid var(--line);
+}
+
+.h4-center {
+  text-align: center;
+}
+
+.h4-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+
+.h4-name {
+  margin-top: 26px;
+  font-family: var(--font-serif);
+  font-size: 140px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.h4-rule {
+  width: 96px;
+  height: 3px;
+  margin: 30px auto 0;
+  background: var(--ink);
+}
+
+.h4-sub {
+  margin-top: 28px;
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: var(--ink-soft);
+}
+
+.h4-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 30px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.h4-info i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+.h4-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 44px;
+}
+
+.h4-band {
+  padding: 90px 0;
+  background: var(--paper-deep);
+  text-align: center;
+}
+
+.h4-manifesto {
+  font-family: var(--font-serif);
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.h4-manifesto-sub {
+  margin-top: 20px;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+.h4-section {
+  padding: 90px 0;
+  border-top: 1px solid var(--line);
+}
+
+.h4-section-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.h4-index-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: 22px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.h4-index-cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+  padding: 26px;
+  background: var(--paper);
+  transition: background-color 160ms ease;
+}
+
+.h4-index-cell:hover {
+  background: var(--paper-soft);
+}
+
+.h4-index-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.h4-index-title {
+  margin-top: 26px;
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.h4-index-desc {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.h4-index-arrow {
+  position: absolute;
+  top: 24px;
+  right: 22px;
+  color: var(--ink-soft);
+  transition: transform 180ms ease, color 180ms ease;
+}
+
+.h4-index-cell:hover .h4-index-arrow {
+  transform: translate(2px, -2px);
+  color: var(--ink);
+}
+
+.h4-stage-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.h4-stage-extra {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.h4-records {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: 22px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.h4-record {
+  display: flex;
+  flex-direction: column;
+  min-height: 240px;
+  padding: 28px;
+  background: var(--paper);
+}
+
+.h4-record-meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-faint);
+}
+
+.h4-record-title {
+  margin-top: 22px;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.h4-record-desc {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+}
+
+.h4-progress {
+  margin-top: 22px;
+  padding: 22px 24px;
+  border: 1px solid var(--line);
+  background: var(--paper-soft);
+}
+
+.h4-progress-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+
+.h4-progress-track {
+  height: 4px;
+  margin-top: 14px;
+  background: var(--line);
+}
+
+.h4-progress-track span {
+  display: block;
+  height: 100%;
+  background: var(--ink);
+}
+
+.h4-progress-note {
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-faint);
+}
+
+.h4-cta {
+  padding: 110px 0;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.h4-cta-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(244, 244, 244, 0.55);
+}
+
+.h4-cta-title {
+  margin-top: 24px;
+  font-family: var(--font-serif);
+  font-size: 52px;
+  font-weight: 600;
+}
+
+.h4-cta-mail {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(244, 244, 244, 0.4);
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--paper);
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+.h4-cta-mail:hover {
+  color: #c8c8c8;
+  border-color: #c8c8c8;
+}
+
+@media (max-width: 1024px) {
+  .h4-name {
+    font-size: 96px;
+  }
+
+  .h4-index-grid,
+  .h4-records {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .h4-hero {
+    padding-block: 80px 60px;
+  }
+
+  .h4-name {
+    font-size: 64px;
+  }
+
+  .h4-sub {
+    font-size: 18px;
+  }
+
+  .h4-info {
+    gap: 10px;
+  }
+
+  .h4-band {
+    padding: 64px 0;
+  }
+
+  .h4-manifesto {
+    font-size: 26px;
+  }
+
+  .h4-section {
+    padding: 64px 0;
+  }
+
+  .h4-index-grid,
+  .h4-records {
+    grid-template-columns: 1fr;
+  }
+
+  .h4-stage-extra {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .h4-cta {
+    padding: 84px 0;
+  }
+
+  .h4-cta-title {
+    font-size: 34px;
   }
 }
