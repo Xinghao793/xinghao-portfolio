@@ -3043,3 +3043,23 @@ button {
     font-size: 34px;
   }
 }
+
+/* SWUFE particle field */
+
+.swufe-field {
+  width: 100%;
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.swufe-field canvas {
+  display: block;
+  width: 100%;
+  height: clamp(340px, 58vh, 620px);
+}
+
+@media (max-width: 768px) {
+  .swufe-field canvas {
+    height: clamp(260px, 42vh, 420px);
+  }
+}

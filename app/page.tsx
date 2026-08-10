@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import SwufeField from "@/components/SwufeField";
 import { experience, journals, profile } from "@/lib/content";
 
 const indexItems = [
@@ -63,6 +64,8 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
+
+      <SwufeField />
 
       <section className="h4-band">
         <div className="container">
