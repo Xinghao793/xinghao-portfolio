@@ -43,7 +43,7 @@ export default function SwufeField() {
       octx.fillText("SWUFE", off.width / 2, off.height / 2);
 
       const img = octx.getImageData(0, 0, off.width, off.height);
-      const step = 4;
+      const step = 3;
       const targets: Array<{ x: number; y: number }> = [];
       for (let y = 0; y < off.height; y += step) {
         for (let x = 0; x < off.width; x += step) {
@@ -52,7 +52,7 @@ export default function SwufeField() {
           }
         }
       }
-      const cap = 1500;
+      const cap = 2200;
       const picked =
         targets.length > cap
           ? Array.from({ length: cap }, (_, i) => targets[Math.floor((i * targets.length) / cap)])
@@ -102,8 +102,8 @@ export default function SwufeField() {
             particle.y += (dy / dist) * force;
           }
         }
-        ctx.fillStyle = "rgba(26, 26, 26, 0.26)";
-        ctx.fillRect(particle.x, particle.y, 2, 2);
+        ctx.fillStyle = "rgba(26, 26, 26, 0.34)";
+        ctx.fillRect(particle.x, particle.y, 2.5, 2.5);
       }
       if (!reduce) {
         raf = requestAnimationFrame(step);
@@ -141,9 +141,5 @@ export default function SwufeField() {
     };
   }, []);
 
-  return (
-    <section className="swufe-field" aria-hidden="true">
-      <canvas ref={canvasRef} />
-    </section>
-  );
+  return <canvas ref={canvasRef} className="swufe-canvas" aria-hidden="true" />;
 }

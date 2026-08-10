@@ -38,6 +38,7 @@ export default function HomePage() {
   return (
     <>
       <section className="h4-hero">
+        <SwufeField />
         <div className="container h4-center">
           <Reveal>
             <span className="h4-eyebrow">PORTFOLIO — 2026 · 金融数学 · SWUFE</span>
@@ -48,8 +49,6 @@ export default function HomePage() {
               <span>西南财经大学</span>
               <i aria-hidden="true" />
               <span>金融数学 · 大二</span>
-              <i aria-hidden="true" />
-              <span>中信证券 · 实习中</span>
             </div>
             <div className="h4-actions">
               <Link href="/experience" className="btn btn-primary">
@@ -64,8 +63,6 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
-
-      <SwufeField />
 
       <section className="h4-band">
         <div className="container">
