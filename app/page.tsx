@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { experience, journals, profile } from "@/lib/content";
-import { assetPath } from "@/lib/paths";
 
 const indexItems = [
   {
@@ -99,11 +98,20 @@ export default function HomePage() {
               25 工作日 · 5 周志 · 2 段实习 · AI 贯穿其中
             </div>
           </Reveal>
-          <Reveal delay={0.15} className="v3-hero-photo-wrap">
-            <div className="v3-hero-photo">
-              <img src={assetPath("/images/photos/portrait-1.jpg")} alt="王星皓" />
+          <Reveal delay={0.15} className="v3-identity-wrap">
+            <div className="v3-identity">
+              <div className="v3-identity-top">
+                <span>XINGHAO WANG</span>
+                <span>SWUFE · 2026</span>
+              </div>
+              <div className="v3-identity-code">XH / 001</div>
+              <div className="v3-identity-latin">王星皓</div>
+              <div className="v3-identity-rule" aria-hidden="true" />
+              <div className="v3-identity-foot">
+                <span>金融数学 · 大二</span>
+                <span>中信证券 · 实习中</span>
+              </div>
             </div>
-            <div className="v3-photo-index">01 / PROFILE</div>
           </Reveal>
         </div>
       </section>

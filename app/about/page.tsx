@@ -1,7 +1,6 @@
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import { profile } from "@/lib/content";
-import { assetPath } from "@/lib/paths";
 
 export default function AboutPage() {
   return (
@@ -17,29 +16,29 @@ export default function AboutPage() {
       </section>
 
       <section className="section" style={{ paddingTop: 32 }}>
-        <div className="container about-grid">
-          <Reveal className="about-media">
-            <div className="about-photo">
-              <img src={assetPath("/images/photos/portrait-1.jpg")} alt="王星皓近景照片" />
+        <div className="container about-editorial">
+          <Reveal className="identity-plate">
+            <div className="identity-plate-top">
+              <span>XINGHAO WANG</span>
+              <span>SWUFE · 2026</span>
             </div>
-            <div className="about-photo-caption">生活照 · 更多照片随网站迭代补充</div>
-            <div className="photo-strip">
-              <img src={assetPath("/images/photos/portrait-2.jpg")} alt="王星皓照片二" />
-              <img src={assetPath("/images/photos/portrait-3.jpg")} alt="王星皓照片三" />
-              <img src={assetPath("/images/photos/fullbody.jpg")} alt="王星皓全身照" />
-            </div>
-          </Reveal>
-          <Reveal delay={0.08} className="bio-copy">
-            {profile.bio.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
-            <div className="info-list">
+            <div className="identity-plate-name">{profile.name}</div>
+            <div className="identity-plate-rule" aria-hidden="true" />
+            <div className="identity-plate-rows">
               {profile.education.map((item) => (
-                <div key={item.label} className="info-item">
-                  <div className="info-label">{item.label}</div>
-                  <div className="info-value">{item.value}</div>
+                <div key={item.label} className="identity-plate-row">
+                  <span>{item.label}</span>
+                  <b>{item.value}</b>
                 </div>
               ))}
+              <div className="identity-plate-row">
+                <span>Email</span>
+                <b>{profile.email}</b>
+              </div>
+              <div className="identity-plate-row">
+                <span>GitHub</span>
+                <b>@{profile.github}</b>
+              </div>
             </div>
             <div className="tag-cloud">
               {profile.tags.map((tag) => (
@@ -48,6 +47,11 @@ export default function AboutPage() {
                 </span>
               ))}
             </div>
+          </Reveal>
+          <Reveal delay={0.08} className="bio-copy">
+            {profile.bio.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
             <SectionHeading kicker="校园生活" title="学习之外的我也在持续输出" />
             <div className="feature-list">
               {profile.hobbies.map((hobby, index) => (

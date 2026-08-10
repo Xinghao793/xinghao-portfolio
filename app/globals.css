@@ -1,22 +1,22 @@
 :root {
-  --paper: #f7f4ee;
-  --paper-deep: #efe9dd;
-  --paper-soft: #fbf9f5;
-  --ink: #1c1b19;
-  --ink-soft: #5a5750;
-  --ink-faint: #8b877e;
-  --line: #d9d2c4;
-  --line-soft: #e7e1d5;
-  --accent: #c2402b;
-  --accent-deep: #7c2418;
-  --accent-soft: #f2ddd6;
-  --slate: #3d5768;
-  --slate-soft: #aab8c0;
-  --cobalt: #3d5afe;
-  --cobalt-soft: #9db0ff;
-  --dark: #141311;
-  --dark-soft: #1c1a17;
-  --line-dark: #38342e;
+  --paper: #f2f1ec;
+  --paper-deep: #e6e2d8;
+  --paper-soft: #f9f8f4;
+  --ink: #14120f;
+  --ink-soft: #504b42;
+  --ink-faint: #8a8478;
+  --line: #cfc8ba;
+  --line-soft: #e0dbcf;
+  --accent: #a97e3d;
+  --accent-deep: #6f5224;
+  --accent-soft: #f1e7d3;
+  --slate: #29463e;
+  --slate-soft: #9aa79f;
+  --cobalt: #29463e;
+  --cobalt-soft: #9aa79f;
+  --dark: #14120f;
+  --dark-soft: #1d1a15;
+  --line-dark: #3a352c;
   --white: #ffffff;
   --font-serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
   --font-sans: "Noto Sans SC", "PingFang SC", "HarmonyOS Sans SC", "Microsoft YaHei", sans-serif;
@@ -2551,5 +2551,152 @@ button {
 
   .v3-cta-mail {
     font-size: 15px;
+  }
+}
+
+/* Identity plate */
+
+.v3-identity-wrap {
+  justify-self: end;
+  width: min(480px, 100%);
+}
+
+.v3-identity {
+  position: relative;
+  padding: 34px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: 14px 14px 0 rgba(169, 126, 61, 0.18);
+}
+
+.v3-identity-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(242, 241, 236, 0.6);
+}
+
+.v3-identity-code {
+  margin-top: 26px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+}
+
+.v3-identity-latin {
+  margin-top: 12px;
+  font-family: var(--font-serif);
+  font-size: 88px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.v3-identity-rule {
+  height: 1px;
+  margin: 28px 0;
+  background: rgba(242, 241, 236, 0.25);
+}
+
+.v3-identity-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(242, 241, 236, 0.55);
+}
+
+.about-editorial {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+.identity-plate {
+  position: sticky;
+  top: 104px;
+  padding: 30px;
+  border: 1px solid var(--line);
+  background: var(--paper-soft);
+}
+
+.identity-plate-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-faint);
+}
+
+.identity-plate-name {
+  margin-top: 22px;
+  font-family: var(--font-serif);
+  font-size: 56px;
+  font-weight: 600;
+}
+
+.identity-plate-rule {
+  height: 1px;
+  margin: 24px 0;
+  background: var(--line);
+}
+
+.identity-plate-rows {
+  border-top: 1px solid var(--line);
+}
+
+.identity-plate-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+
+.identity-plate-row span {
+  padding-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.identity-plate-row b {
+  font-weight: 600;
+  text-align: right;
+  word-break: break-all;
+}
+
+.identity-plate .tag-cloud {
+  margin-top: 22px;
+}
+
+@media (max-width: 1024px) {
+  .about-editorial {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .identity-plate {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .v3-identity-latin {
+    font-size: 56px;
+  }
+
+  .v3-identity {
+    padding: 26px;
+  }
+
+  .identity-plate-name {
+    font-size: 44px;
   }
 }
