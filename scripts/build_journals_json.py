@@ -138,6 +138,40 @@ EVENT_MAP = {
     },
 }
 
+TAGS_MAP = {
+    "2026-07-13-daily": ["晨会", "行业认知", "实习日常"],
+    "2026-07-14-daily": ["晨会", "券商业务", "公募基金"],
+    "2026-07-15-daily": ["晨会", "模拟交易", "投资基础"],
+    "2026-07-16-daily": ["晨会", "期货", "基金路演"],
+    "2026-07-17-daily": ["晨会", "基金路演", "定投"],
+    "2026-07-17-weekly": ["周志", "晨会", "基金路演", "模拟交易"],
+    "2026-07-20-daily": ["私募基金", "资产配置"],
+    "2026-07-21-daily": ["晨会", "资产配置"],
+    "2026-07-22-daily": ["辩论主持", "晨会"],
+    "2026-07-23-daily": ["资产配置", "商务礼仪", "私行参访"],
+    "2026-07-24-daily": ["资产配置", "路演", "结业"],
+    "2026-07-24-weekly": ["周志", "私募基金", "资产配置", "辩论主持"],
+    "2026-07-27-daily": ["晨会", "行业分析"],
+    "2026-07-28-daily": ["CATS 交易系统", "行业分析"],
+    "2026-07-29-daily": ["CATS 交易系统", "TWAP 策略", "行业路演", "AI 协作"],
+    "2026-07-30-daily": ["CATS 交易系统", "策略梳理"],
+    "2026-07-31-daily": ["市场复盘", "投资心理"],
+    "2026-07-31-weekly": ["周志", "CATS 交易系统", "行业研究", "投资心理"],
+    "2026-08-03-daily": ["晨会", "市场复盘", "研报"],
+    "2026-08-04-daily": ["晨会", "AI 产业链", "光模块"],
+    "2026-08-05-daily": ["市场复盘", "半导体", "研报"],
+    "2026-08-06-daily": ["市场复盘", "煤炭", "AI 协作"],
+    "2026-08-07-daily": ["晨会", "市场复盘", "铜"],
+    "2026-08-07-weekly": ["周志", "研报", "CATS 交易系统", "行业研究"],
+    "2026-08-10-daily": ["晨会", "市场复盘", "先进封装"],
+    "2026-08-11-daily": ["晨会", "医药", "全球市场"],
+    "2026-08-12-daily": ["晨会", "存储", "AI 应用"],
+    "2026-08-13-daily": ["晨会", "海外宏观", "资产配置"],
+    "2026-08-14-daily": ["晨会", "货币政策", "财报"],
+    "2026-08-14-weekly": ["周志", "研报", "晨会", "行业框架"],
+    "2026-08-14-summary": ["总结", "五周实习", "成长复盘"],
+}
+
 
 def parse_frontmatter(text):
     fm = {}
@@ -201,6 +235,7 @@ for fname in sorted(os.listdir(SRC)):
     typ = fm.get("type", "daily")
     summary = pick_summary(paragraphs)
     event = EVENT_MAP.get(f"{date}-{typ}", {})
+    tags = TAGS_MAP.get(f"{date}-{typ}", detect_tags(body, typ))
     entry = {
         "id": f"{date}-{typ}",
         "date": date,
@@ -208,7 +243,7 @@ for fname in sorted(os.listdir(SRC)):
         "title": fm.get("title", date),
         "event": event.get("event", fm.get("title", date)),
         "eventSummary": event.get("summary", summary),
-        "tags": detect_tags(body, typ),
+        "tags": tags,
         "summary": summary,
         "paragraphs": paragraphs,
     }
