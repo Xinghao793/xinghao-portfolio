@@ -73,20 +73,6 @@ export default function JournalPage() {
                 >
                   实习总结
                 </button>
-                <button
-                  type="button"
-                  className={`filter-chip ${typeFilter === "summary" ? "active" : ""}`}
-                  onClick={() => setTypeFilter("summary")}
-                >
-                  实习总结
-                </button>
-                <button
-                  type="button"
-                  className={`filter-chip ${typeFilter === "summary" ? "active" : ""}`}
-                  onClick={() => setTypeFilter("summary")}
-                >
-                  实习总结
-                </button>
               </div>
               <div className="filter-row">
                 {tags.map((tag) => (
