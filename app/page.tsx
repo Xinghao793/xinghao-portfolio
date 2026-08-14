@@ -7,7 +7,7 @@ import { experience, journals, profile } from "@/lib/content";
 const indexItems = [
   { n: "01", href: "/about", title: "关于我", desc: "金融数学学生与 AI 工具实践者" },
   { n: "02", href: "/experience", title: "实习经历", desc: "中信证券 · 飞鹰计划到管培生" },
-  { n: "03", href: "/journal", title: "实习日志", desc: "17 个工作日 · 3 篇周志 · 持续补充" },
+  { n: "03", href: "/journal", title: "实习日志", desc: "25 个工作日 · 5 篇周志 · 1 篇总结" },
   { n: "04", href: "/skills", title: "技能能力", desc: "金融 · 数据 · AI · 软技能" },
   { n: "05", href: "/awards", title: "荣誉活动", desc: "奖学金 · 双创 · 合唱团 · 辩论主持" },
   { n: "06", href: "/contact", title: "联系我", desc: "email · GitHub · AI 王星皓" }
@@ -132,7 +132,7 @@ export default function HomePage() {
               <div className="h4-progress-track">
                 <span style={{ width: `${progress}%` }} />
               </div>
-              <div className="h4-progress-note">剩余工作日日志会持续补充</div>
+              {recordedDays >= 25 ? "全部 25 个工作日日志已归档" : "剩余工作日日志会持续补充"}
             </div>
           </Reveal>
         </div>

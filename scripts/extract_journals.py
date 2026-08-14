@@ -24,6 +24,8 @@ def extract_text(path):
 
 
 def classify(fname):
+    if "实习总结" in fname:
+        return "2026-08-14", "summary"
     typ = "weekly" if "周志" in fname else "daily"
     m = re.search(r"(\d+)月(\d+)日", fname) or re.search(r"(\d+)\.(\d+)", fname)
     if m:
@@ -34,6 +36,10 @@ def classify(fname):
         return "2026-07-24", "weekly"
     if "第三周" in fname:
         return "2026-07-31", "weekly"
+    if "第四周" in fname:
+        return "2026-08-07", "weekly"
+    if "第五周" in fname:
+        return "2026-08-14", "weekly"
     return None, typ
 
 

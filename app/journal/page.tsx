@@ -6,7 +6,7 @@ import { ArrowUpRight, ChevronRight, Search } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { formatDate, journalTagPool, journals } from "@/lib/content";
 
-type TypeFilter = "all" | "daily" | "weekly";
+type TypeFilter = "all" | "daily" | "weekly" | "summary";
 
 export default function JournalPage() {
   const [typeFilter, setTypeFilter] = useState<TypeFilter>("all");
@@ -34,7 +34,7 @@ export default function JournalPage() {
             <span className="kicker">JOURNAL / 实习日志</span>
             <h1 className="page-title">每一天都算数，每一篇都保留。</h1>
             <p className="page-intro">
-              实习周期为 2026.07.13 至 08.14，按每周一至周五写日志、每周写一篇周志计算，共 30 篇记录。当前已归档 20 篇，其余日志会持续补充。可以按类型、标签筛选，也可以直接搜索。
+              实习周期为 2026.07.13 至 08.14，共 31 篇记录：25 个工作日日志、5 篇周志、1 篇实习总结。可以按类型、标签筛选，也可以直接搜索。
             </p>
           </Reveal>
         </div>
@@ -66,6 +66,13 @@ export default function JournalPage() {
                 >
                   周度总结
                 </button>
+                <button
+                  type="button"
+                  className={`filter-chip ${typeFilter === "summary" ? "active" : ""}`}
+                  onClick={() => setTypeFilter("summary")}
+                >
+                  实习总结
+                </button>
               </div>
               <div className="filter-row">
                 {tags.map((tag) => (
@@ -93,7 +100,7 @@ export default function JournalPage() {
           </div>
 
           <div className="result-count">
-            共 {filtered.length} 篇 · 当前筛选：{typeFilter === "all" ? "全部类型" : typeFilter === "daily" ? "每日日志" : "周度总结"}
+            共 {filtered.length} 篇 · 当前筛选：{typeFilter === "all" ? "全部类型" : typeFilter === "daily" ? "每日日志" : typeFilter === "weekly" ? "周度总结" : "实习总结"}
             {tagFilter !== "全部" ? ` · ${tagFilter}` : ""}
           </div>
 
@@ -111,7 +118,7 @@ export default function JournalPage() {
                       <span className="journal-title">{entry.event}</span>
                       <span className="journal-meta">
                         <span className="journal-type">
-                          {entry.type === "daily" ? "日志" : "周志"}
+                          {entry.type === "daily" ? "日志" : entry.type === "weekly" ? "周志" : "总结"}
                         </span>
                         <ChevronRight className="journal-arrow" size={18} />
                       </span>

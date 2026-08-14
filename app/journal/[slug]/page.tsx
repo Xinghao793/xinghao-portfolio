@@ -32,7 +32,7 @@ export default async function JournalDetailPage({
         <div className="container">
           <Reveal>
             <div className="article-date">
-              {formatDate(entry.date)} · {entry.type === "daily" ? "每日日志" : "周度总结"}
+              {formatDate(entry.date)} · {entry.type === "daily" ? "每日日志" : entry.type === "weekly" ? "周度总结" : "实习总结"}
             </div>
             <h1 className="article-title">{entry.event}</h1>
             <p className="article-sub">{entry.title}</p>

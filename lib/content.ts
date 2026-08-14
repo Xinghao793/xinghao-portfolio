@@ -12,7 +12,7 @@ export type Award = (typeof awardsData)[number];
 export interface JournalEntry {
   id: string;
   date: string;
-  type: "daily" | "weekly";
+  type: "daily" | "weekly" | "summary";
   title: string;
   event: string;
   eventSummary: string;

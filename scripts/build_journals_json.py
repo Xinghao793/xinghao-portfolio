@@ -84,6 +84,14 @@ EVENT_MAP = {
         "event": "第三周周志：动手比光听有用",
         "summary": "完成 CATS 策略、行业路演与每日复盘，从复述信息转向独立判断。",
     },
+    "2026-08-03-daily": {
+        "event": "A股修复预期与8月亮马组合",
+        "summary": "晨会讨论8月超跌修复、CSP资本开支与8月亮马组合，建立宏观到行业的判断线索。",
+    },
+    "2026-08-04-daily": {
+        "event": "AI产业链与超级周期复盘",
+        "summary": "复盘泛周期超级周期、北美云资本开支与光模块景气，关注双顶与A杀信号。",
+    },
     "2026-08-05-daily": {
         "event": "四份研报横向对比总结",
         "summary": "阅读消费互联网、AI 算力、稀土、SaaS 研报，搭建横向对比框架。",
@@ -91,6 +99,42 @@ EVENT_MAP = {
     "2026-08-06-daily": {
         "event": "AI 辅助研报分析与市场复盘",
         "summary": "用 AI 工具梳理研报逻辑并交叉验证，完成煤炭与半导体板块复盘。",
+    },
+    "2026-08-07-daily": {
+        "event": "铜供给约束与一周市场复盘",
+        "summary": "晨会解读 AI 资本开支影响与刚果铜禁令，结合一周轮动复盘市场风格。",
+    },
+    "2026-08-07-weekly": {
+        "event": "第四周周志：研报阅读与行业深度",
+        "summary": "第四周围绕研报阅读、行业深度分析与 CATS 交易系统实操展开。",
+    },
+    "2026-08-10-daily": {
+        "event": "超跌修复与先进封装专题",
+        "summary": "晨会梳理8月超跌反弹、PCB/半导体材料修复，阅读先进封装与玻璃基板专题。",
+    },
+    "2026-08-11-daily": {
+        "event": "医药风险缓和与全球市场复盘",
+        "summary": "晨会覆盖药明康德禁令缓释、全球市场分化与 AI 资本开支矛盾。",
+    },
+    "2026-08-12-daily": {
+        "event": "存储行业与AI应用研究",
+        "summary": "晨会总结全球存储 Q2、AI 重塑游戏行业与量化动量退潮观察。",
+    },
+    "2026-08-13-daily": {
+        "event": "海外宏观与大类资产配置",
+        "summary": "晨会覆盖美国 CPI、中东局势、中期选举与黄金确定性。",
+    },
+    "2026-08-14-daily": {
+        "event": "货币政策报告点评与实习收官",
+        "summary": "晨会解读二季度货币政策报告与腾讯财报，完成五周实习复盘。",
+    },
+    "2026-08-14-weekly": {
+        "event": "第五周周志：跨行业框架搭建",
+        "summary": "第五周以研报阅读、晨会要点整理和跨行业研究框架搭建为主。",
+    },
+    "2026-08-14-summary": {
+        "event": "实习总结：从听不懂到能串起来",
+        "summary": "从 7.13 到 8.14 完成五周实习，从晨会术语到搭框架、复述逻辑、串宏观与盘面。",
     },
 }
 
@@ -113,6 +157,8 @@ def detect_tags(text, typ):
     tags = []
     if typ == "weekly":
         tags.append("周志")
+    if typ == "summary":
+        tags.append("总结")
     if "大盘" in text or "板块" in text:
         tags.append("市场复盘")
     if "CATS" in text or "TWAP" in text or "策略" in text:
@@ -164,11 +210,12 @@ for fname in sorted(os.listdir(SRC)):
         "eventSummary": event.get("summary", summary),
         "tags": detect_tags(body, typ),
         "summary": summary,
-        "paragraphs": paragraphs
+        "paragraphs": paragraphs,
     }
     entries.append(entry)
 
-entries.sort(key=lambda e: (e["date"], 0 if e["type"] == "daily" else 1))
+order = {"daily": 0, "weekly": 1, "summary": 2}
+entries.sort(key=lambda e: (e["date"], order.get(e["type"], 3)))
 
 with open(OUT, "w", encoding="utf-8") as f:
     json.dump(entries, f, ensure_ascii=False, indent=2)
